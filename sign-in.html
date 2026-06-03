@@ -19,7 +19,7 @@
     <div class="auth-page" style="background-image: url('images/image-122.png');">
         <div class="auth-container">
 
-            <!-- Left Box: Glassmorphism Login Form -->
+            <!-- Left Box: Form đăng nhập -->
             <section class="auth-glass-box">
                 <h2>CHÀO MỪNG TRỞ LẠI!</h2>
 
@@ -46,13 +46,13 @@
                             autocomplete="current-password">
                     </div>
 
-                    <!-- Remember me -->
+                    <!-- Nút "ghi nhớ tôi" -->
                     <div class="auth-checkbox-wrap">
                         <input type="checkbox" id="login-remember">
                         <label for="login-remember">Ghi nhớ tôi</label>
                     </div>
 
-                    <!-- Error Message Display -->
+                    <!-- Thông báo lỗi -->
                     <div id="login-error"
                         style="color: #ff4d4d; font-size: 13px; font-weight: 600; display: none; text-align: center;">
                     </div>
@@ -66,7 +66,7 @@
                 </div>
             </section>
 
-            <!-- Right Column: Brand Section -->
+            <!-- Right Column: Tên thương hiệu -->
             <section class="auth-brand-section">
                 <div class="auth-logo-circle">
                     <img src="images/logo-84.png" alt="Logo">
@@ -90,10 +90,10 @@
                 const userInput = document.getElementById("login-user").value.trim();
                 const passInput = document.getElementById("login-pass").value;
 
-                // Fetch users database
+                // Lấy dữ liệu cơ sở người dùng
                 const users = JSON.parse(localStorage.getItem("tmc_users")) || DEFAULT_USERS;
 
-                // Authenticate
+                // Xác thực người dùng
                 const user = users.find(u =>
                     (u.username === userInput || u.email === userInput) &&
                     u.password === passInput

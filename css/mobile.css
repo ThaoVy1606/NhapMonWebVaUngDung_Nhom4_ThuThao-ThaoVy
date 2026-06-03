@@ -228,38 +228,25 @@
 
 /* Menu con */
 .dropdown-menu {
-    list-style: none;
-    display: none;
-    background-color: var (--bg-nav);
-    padding: 0 0 0 20px;
-    margin: 0;
-    border: none;
-    box-shadow: none;
+    display: none; 
     width: 100%;
+    background-color: var(--bg-nav); 
+    padding-left: 20px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); 
 }
 
-.has-dropdown {
-    position: static;
+
+.has-dropdown.open > .dropdown-menu {
+    display: block !important;
 }
 
-.has-dropdown.open .dropdown-menu, .dropdown-menu.show {
-    display: block;
-}
-
-.has-dropdown.open .arrow-icon {
+.has-dropdown.open > a .arrow-icon {
     transform: rotate(180deg);
 }
 
-.dropdown-menu li {
-    border-bottom: 1px solid #ededed;
-}
-
 .dropdown-menu li a {
-    font-size: 14px;
-    font-weight: 500;
-    color: #555;
-    padding: 12px 10px 12px 20px;
-    display: block;
+    padding: 15px 20px; 
+    color: #333;
 }
 
     /* Dịch vụ */

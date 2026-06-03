@@ -19,7 +19,7 @@
     <div class="auth-page" style="background-image: url('images/image-34.png');">
         <div class="auth-container">
 
-            <!-- Left Box: Glassmorphism Sign-Up Form -->
+            <!-- Left Box: Form đăng ký -->
             <section class="auth-glass-box">
                 <h2>CHÀO MỪNG GIA NHẬP!</h2>
 
@@ -68,7 +68,7 @@
                             autocomplete="new-password">
                     </div>
 
-                    <!-- Error Message Display -->
+                    <!-- Thông báo lỗi -->
                     <div id="register-error"
                         style="color: #ff4d4d; font-size: 13px; font-weight: 600; display: none; text-align: center;">
                     </div>
@@ -82,7 +82,7 @@
                 </div>
             </section>
 
-            <!-- Right Column: Brand Section -->
+            <!-- Right Column: Tên thương hiệu -->
             <section class="auth-brand-section">
                 <div class="auth-logo-circle">
                     <img src="images/logo-84.png" alt="Logo">
@@ -108,7 +108,7 @@
                 const passInput = document.getElementById("register-pass").value;
                 const confirmInput = document.getElementById("register-confirm").value;
 
-                // Validation checks
+                // Kiểm tra lại mật khẩu
                 if (passInput !== confirmInput) {
                     errorDiv.innerText = "Mật khẩu xác nhận không trùng khớp!";
                     errorDiv.style.display = "block";
@@ -121,7 +121,7 @@
                     return;
                 }
 
-                // Fetch users database
+                // Lấy dữ liệu cơ sở người dùng
                 const users = JSON.parse(localStorage.getItem("tmc_users")) || DEFAULT_USERS;
 
                 // Check if user already exists
@@ -132,7 +132,7 @@
                     return;
                 }
 
-                // Create new user object
+                // Tạo đối tượng user mới
                 const isEmail = contactInput.includes("@");
                 const newUser = {
                     username: userInput,
@@ -144,14 +144,14 @@
                     spending: 0
                 };
 
-                // Save new user
+                // Lưu
                 users.push(newUser);
                 localStorage.setItem("tmc_users", JSON.stringify(users));
 
                 // Auto login
                 setSessionUser(newUser);
 
-                // Display success toast and redirect
+                // Thông báo
                 showNotification("Đăng ký tài khoản thành công! Đang đăng nhập...");
                 setTimeout(() => {
                     window.location.href = "index.html";
