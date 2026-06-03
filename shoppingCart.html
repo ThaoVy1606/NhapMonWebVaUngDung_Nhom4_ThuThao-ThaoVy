@@ -90,8 +90,8 @@
             <a href="#">Danh mục phòng <img src="images/polygon-2-158.svg" alt="arrow" class="arrow-icon"></a>
             <ul class="dropdown-menu">
               <li><a href="livingroom.html">Phòng khách</a></li>
-              <li><a href="bedroom.html">Phòng ngủ</a></li>
-              <li><a href="kitchen.html">Phòng bếp</a></li>
+              <li><a href="livingroom.html">Phòng ngủ</a></li>
+              <li><a href="livingroom.html">Phòng bếp</a></li>
             </ul>
           </li>
           <li><a href="contactUs.html">Liên hệ</a></li>
@@ -109,7 +109,8 @@
         <p>Giỏ Hàng Của Mèo</p>
       </div>
       <div class="cart-title-right">
-        <img src="images/imgusername-323.svg" alt="User" style="width: 32px; height: 32px; background-color: #fff; border-radius: 50%;">
+        <img src="images/imgusername-323.svg" alt="User"
+          style="width: 32px; height: 32px; background-color: #fff; border-radius: 50%;">
         <span>Tài khoản</span>
       </div>
     </section>
@@ -168,198 +169,10 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const tbody = document.getElementById("cart-tbody");
-      const totalSpan = document.getElementById("cart-total-sum");
-      const checkoutBtn = document.getElementById("place-order-btn");
-      const couponInput = document.getElementById("coupon-code");
-      const applyCouponBtn = document.getElementById("apply-coupon-btn");
-      
-      let discountPercentage = 0;
-
-      function renderCart() {
-        const cart = getCart();
-        tbody.innerHTML = "";
-        
-        if (cart.length === 0) {
-          tbody.innerHTML = `
-            <tr>
-              <td colspan="4" class="center" style="padding: 40px; font-size: 16px; color: #666; font-family: var(--font-family-poltawski-nowy);">
-                Giỏ hàng của mèo đang trống! Hãy quay lại chọn sản phẩm nhé.
-              </td>
-            </tr>
-          `;
-          totalSpan.innerText = "Tổng: 0đ";
-          checkoutBtn.disabled = true;
-          checkoutBtn.style.opacity = "0.5";
-          checkoutBtn.style.cursor = "not-allowed";
-          return;
-        }
-
-        checkoutBtn.disabled = false;
-        checkoutBtn.style.opacity = "1";
-        checkoutBtn.style.cursor = "pointer";
-
-        let subtotal = 0;
-
-        cart.forEach((item, index) => {
-          subtotal += item.price * item.quantity;
-          
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>
-              <div class="cart-product-item">
-                <img src="${item.image}" alt="${item.name}">
-                <div class="cart-product-info">
-                  <h4>${item.name}</h4>
-                  <p>${item.desc}</p>
-                </div>
-              </div>
-            </td>
-            <td class="center">
-              <span class="cart-price">${formatCurrency(item.price)}</span>
-            </td>
-            <td class="center">
-              <div class="quantity-selector">
-                <button type="button" class="qty-btn minus" data-id="${item.id}">-</button>
-                <input type="text" value="${item.quantity}" readonly>
-                <button type="button" class="qty-btn plus" data-id="${item.id}">+</button>
-              </div>
-            </td>
-            <td class="center">
-              <div class="cart-actions">
-                <img src="images/edit-property-466.png" alt="Edit" title="Sửa">
-                <img src="images/delete-trash-465.png" alt="Delete" class="delete-btn" data-id="${item.id}" title="Xóa">
-              </div>
-            </td>
-          `;
-          tbody.appendChild(tr);
-        });
-
-        // Apply discount if any
-        const discountAmount = subtotal * (discountPercentage / 100);
-        const finalTotal = subtotal - discountAmount;
-
-        totalSpan.innerText = `Tổng: ${formatCurrency(finalTotal)}` + (discountPercentage > 0 ? ` (Đã giảm ${discountPercentage}%)` : '');
-
-        // Re-bind listeners
-        bindCartEvents();
-      }
-
-      function bindCartEvents() {
-        // Quantity Plus
-        document.querySelectorAll(".qty-btn.plus").forEach(btn => {
-          btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            const cart = getCart();
-            const item = cart.find(i => i.id === id);
-            if (item) {
-              item.quantity += 1;
-              saveCart(cart);
-              renderCart();
-            }
-          });
-        });
-
-        // Quantity Minus
-        document.querySelectorAll(".qty-btn.minus").forEach(btn => {
-          btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            const cart = getCart();
-            const itemIndex = cart.findIndex(i => i.id === id);
-            if (itemIndex > -1) {
-              cart[itemIndex].quantity -= 1;
-              if (cart[itemIndex].quantity <= 0) {
-                cart.splice(itemIndex, 1);
-              }
-              saveCart(cart);
-              renderCart();
-            }
-          });
-        });
-
-        // Delete Button
-        document.querySelectorAll(".delete-btn").forEach(btn => {
-          btn.addEventListener("click", () => {
-            const id = btn.getAttribute("data-id");
-            let cart = getCart();
-            cart = cart.filter(i => i.id !== id);
-            saveCart(cart);
-            renderCart();
-            showNotification("Đã xóa sản phẩm khỏi giỏ hàng.");
-          });
-        });
-      }
-
-      // Apply coupon
-      applyCouponBtn.addEventListener("click", () => {
-        const code = couponInput.value.trim().toUpperCase();
-        if (code === "MOONCAT20") {
-          discountPercentage = 20;
-          showNotification("Áp dụng mã MOONCAT20 thành công! Giảm 20% tổng đơn hàng.");
-          renderCart();
-        } else if (code === "FREESHIP") {
-          showNotification("Áp dụng mã FREESHIP thành công! Miễn phí vận chuyển.");
-        } else {
-          showNotification("Mã giảm giá không hợp lệ!");
-        }
-      });
-
-      // Checkout submit
-      checkoutBtn.addEventListener("click", () => {
-        const user = getSessionUser();
-        if (!user) {
-          showNotification("Vui lòng đăng nhập để tiến hành đặt hàng!");
-          setTimeout(() => {
-            window.location.href = "sign-in.html";
-          }, 1000);
-          return;
-        }
-
-        const cart = getCart();
-        if (cart.length === 0) return;
-
-        // Calculate total
-        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-        const finalTotal = subtotal * (1 - discountPercentage / 100);
-
-        // Create mock order
-        const orders = JSON.parse(localStorage.getItem("tmc_orders")) || [];
-        const nextId = "MC" + Math.floor(1000 + Math.random() * 9000);
-        const today = new Date();
-        const formattedDate = `${today.getDate().toString().padStart(2, '0')}/${(today.getMonth() + 1).toString().padStart(2, '0')}/${today.getFullYear()}`;
-        
-        const newOrder = {
-          orderId: nextId,
-          username: user.username,
-          date: formattedDate,
-          total: formatCurrency(finalTotal),
-          status: "Đang xử lý"
-        };
-
-        orders.push(newOrder);
-        localStorage.setItem("tmc_orders", JSON.stringify(orders));
-
-        // Clear cart
-        localStorage.setItem("tmc_cart", JSON.stringify([]));
-        updateCartUI();
-
-        showNotification("Đặt hàng thành công! Đang chuyển hướng đến trang tài khoản...");
-        setTimeout(() => {
-          window.location.href = "account.html";
-        }, 1200);
-      });
-
-      // Initial render
-      renderCart();
-    });
-  </script>
-
-
   <!-- Liên kết javascript -->
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/shoppingCart.js"></script>
 </body>
 
 </html>

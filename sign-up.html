@@ -24,7 +24,7 @@
                 <h2>CHÀO MỪNG GIA NHẬP!</h2>
 
                 <form class="auth-form" id="register-form">
-                    <!-- Input Username -->
+                    <!-- Ô nhập Username -->
                     <div class="auth-input-wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#555555"
                             stroke-width="2" class="input-icon">
@@ -35,7 +35,7 @@
                             autocomplete="username">
                     </div>
 
-                    <!-- Input Email or Phone -->
+                    <!-- Ô nhập email hoặc số điện thoại -->
                     <div class="auth-input-wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#555555"
                             stroke-width="2" class="input-icon">
@@ -46,7 +46,7 @@
                             required>
                     </div>
 
-                    <!-- Input Password -->
+                    <!-- Ô nhập password -->
                     <div class="auth-input-wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#555555"
                             stroke-width="2" class="input-icon">
@@ -57,7 +57,7 @@
                             autocomplete="new-password">
                     </div>
 
-                    <!-- Input Confirm Password -->
+                    <!-- Ô nhập lại password -->
                     <div class="auth-input-wrap">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#555555"
                             stroke-width="2" class="input-icon">
@@ -73,7 +73,7 @@
                         style="color: #ff4d4d; font-size: 13px; font-weight: 600; display: none; text-align: center;">
                     </div>
 
-                    <!-- Submit Button -->
+                    <!-- Nút Đăng ký ngay -->
                     <button type="submit" class="auth-btn">ĐĂNG KÝ NGAY</button>
                 </form>
 
@@ -94,75 +94,10 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const registerForm = document.getElementById("register-form");
-            const errorDiv = document.getElementById("register-error");
-
-            registerForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                errorDiv.style.display = "none";
-
-                const userInput = document.getElementById("register-user").value.trim();
-                const contactInput = document.getElementById("register-contact").value.trim();
-                const passInput = document.getElementById("register-pass").value;
-                const confirmInput = document.getElementById("register-confirm").value;
-
-                // Kiểm tra lại mật khẩu
-                if (passInput !== confirmInput) {
-                    errorDiv.innerText = "Mật khẩu xác nhận không trùng khớp!";
-                    errorDiv.style.display = "block";
-                    return;
-                }
-
-                if (userInput.length < 3) {
-                    errorDiv.innerText = "Tên đăng nhập phải chứa ít nhất 3 ký tự!";
-                    errorDiv.style.display = "block";
-                    return;
-                }
-
-                // Lấy dữ liệu cơ sở người dùng
-                const users = JSON.parse(localStorage.getItem("tmc_users")) || DEFAULT_USERS;
-
-                // Check if user already exists
-                const exists = users.some(u => u.username === userInput || u.email === contactInput || u.phone === contactInput);
-                if (exists) {
-                    errorDiv.innerText = "Tên đăng nhập hoặc Email/Số điện thoại đã tồn tại!";
-                    errorDiv.style.display = "block";
-                    return;
-                }
-
-                // Tạo đối tượng user mới
-                const isEmail = contactInput.includes("@");
-                const newUser = {
-                    username: userInput,
-                    email: isEmail ? contactInput : `${userInput}@themooncat.com`,
-                    phone: isEmail ? "Chưa cập nhật" : contactInput,
-                    address: "Chưa cập nhật",
-                    password: passInput,
-                    rank: "ĐỒNG",
-                    spending: 0
-                };
-
-                // Lưu
-                users.push(newUser);
-                localStorage.setItem("tmc_users", JSON.stringify(users));
-
-                // Auto login
-                setSessionUser(newUser);
-
-                // Thông báo
-                showNotification("Đăng ký tài khoản thành công! Đang đăng nhập...");
-                setTimeout(() => {
-                    window.location.href = "index.html";
-                }, 800);
-            });
-        });
-    </script>
-
     <!-- Liên kết javascript -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/sign-up.js"></script>
 </body>
 
 </html>

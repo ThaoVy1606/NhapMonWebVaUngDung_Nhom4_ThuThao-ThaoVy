@@ -90,8 +90,8 @@
             <a href="#">Danh mục phòng <img src="images/polygon-2-158.svg" alt="arrow" class="arrow-icon"></a>
             <ul class="dropdown-menu">
               <li><a href="livingroom.html">Phòng khách</a></li>
-              <li><a href="bedroom.html">Phòng ngủ</a></li>
-              <li><a href="kitchen.html">Phòng bếp</a></li>
+              <li><a href="livingroom.html">Phòng ngủ</a></li>
+              <li><a href="livingroom.html">Phòng bếp</a></li>
             </ul>
           </li>
           <li><a href="contactUs.html">Liên hệ</a></li>
@@ -111,14 +111,16 @@
 
         <H1 class="TAG" style="font-size: 25px;">LIVING ROOM</H1>
       </div>
-      
+
     </section>
 
     <!-- Products Wrapper -->
     <section class="products-wrapper" id="products-wrapper">
       <!-- Large Showcase Image -->
-      <div style="width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 30px; box-shadow: var(--shadow-sm);">
-        <img src="images/phong1-401.png" alt="Living Room Showcase" style="width: 100%; height: auto; object-fit: cover;">
+      <div
+        style="width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 30px; box-shadow: var(--shadow-sm);">
+        <img src="images/phong1-401.png" alt="Living Room Showcase"
+          style="width: 100%; height: auto; object-fit: cover;">
       </div>
 
       <!-- 2x2 Products Grid -->
@@ -148,7 +150,8 @@
           <div class="prod-info-wrap">
             <div>
               <h3>Tranh Treo Tường Đóa Hoa</h3>
-              <p class="desc">Tác phẩm nghệ thuật tối giản với tone màu trung tính, tạo điểm nhấn thanh lịch cho bức tường.</p>
+              <p class="desc">Tác phẩm nghệ thuật tối giản với tone màu trung tính, tạo điểm nhấn thanh lịch cho bức
+                tường.</p>
             </div>
             <div class="prod-footer-row">
               <span class="price">Giá: 1.250.000đ</span>
@@ -165,7 +168,8 @@
           <div class="prod-info-wrap">
             <div>
               <h3>Ember Oak Side Table</h3>
-              <p class="desc">Sự kết hợp hoàn hảo giữa gỗ tự nhiên và mặt ngăn kéo trắng, tích hợp 2 tầng lưu trữ tiện lợi.</p>
+              <p class="desc">Sự kết hợp hoàn hảo giữa gỗ tự nhiên và mặt ngăn kéo trắng, tích hợp 2 tầng lưu trữ tiện
+                lợi.</p>
             </div>
             <div class="prod-footer-row">
               <span class="price">Giá: 2.850.000đ</span>
@@ -182,7 +186,8 @@
           <div class="prod-info-wrap">
             <div>
               <h3>Luna Accent Chair</h3>
-              <p class="desc">Khung gỗ sồi đen uốn cong mềm mại kết hợp nệm ngồi màu kem tinh tế, chuẩn phong cách Bắc Âu.</p>
+              <p class="desc">Khung gỗ sồi đen uốn cong mềm mại kết hợp nệm ngồi màu kem tinh tế, chuẩn phong cách Bắc
+                Âu.</p>
             </div>
             <div class="prod-footer-row">
               <span class="price">Giá: 7.900.000đ</span>
@@ -229,31 +234,10 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".product-card-horizontal").forEach((card, index) => {
-        const btn = card.querySelector(".add-to-cart-circle");
-        if (btn) {
-          btn.addEventListener("click", () => {
-            const id = "living-" + (index + 1);
-            const name = card.querySelector("h3").innerText;
-            const desc = card.querySelector("p.desc").innerText;
-            const img = card.querySelector(".prod-img-wrap img").getAttribute("src");
-            const priceText = card.querySelector(".price").innerText;
-            const price = parseInt(priceText.replace(/[^0-9]/g, ""), 10);
-            
-            addToCart({ id, name, price, image: img, desc });
-          });
-        }
-      });
-    });
-  </script>
-
-
-
   <!-- Liên kết javascript -->
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/livingroom.js"></script>
 </body>
 
 </html>

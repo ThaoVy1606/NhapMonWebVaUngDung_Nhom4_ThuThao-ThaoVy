@@ -1,21 +1,22 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.navbar-collapse');
-
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            // Toggle hiển thị
-            if (navMenu.style.display === 'flex') {
-                navMenu.style.display = 'none';
-            } else {
-                navMenu.style.display = 'flex';
-            }
-        });
-    }
+//xử lý giao diện
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMenu = document.querySelector('.navbar-collapse');
+  //chức năng đóng/mở menu mobile
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function () {
+      // Toggle hiển thị
+      if (navMenu.style.display === 'flex') {
+        navMenu.style.display = 'none';
+      } else {
+        navMenu.style.display = 'flex';
+      }
+    });
+  }
 });
 
 
-// Default mock database structure
+//cấu hình dữ liệu mẫu (MOCK DATA)
 const DEFAULT_USERS = [
   {
     username: "admin",
@@ -45,7 +46,8 @@ const DEFAULT_ORDERS = [
   }
 ];
 
-// Initialize database
+//quản lý dữ iệu với LOCALSTORAGE
+//kiểm tra và tạo dữ liệu mặc định vào localstorage nếu chưa tồn tại
 function initDatabase() {
   if (!localStorage.getItem("tmc_users")) {
     localStorage.setItem("tmc_users", JSON.stringify(DEFAULT_USERS));
@@ -58,39 +60,40 @@ function initDatabase() {
   }
 }
 
-// Get current session user
+//lấy thông tin người dùng đang đăng nhập từ sesion
 function getSessionUser() {
   const session = localStorage.getItem("tmc_session");
   return session ? JSON.parse(session) : null;
 }
 
-// Set active session user
+//lưu thông tin người dùng khi đăng nhập thành công
 function setSessionUser(user) {
   localStorage.setItem("tmc_session", JSON.stringify(user));
 }
 
-// Remove session (Logout)
+//xóa thông tin đăng nhập và quay về trang chủ 
 function logoutUser() {
   localStorage.removeItem("tmc_session");
   window.location.href = "index.html";
 }
 
-// Get cart items
+//Xử lý giỏ hàng
+//lấy danh sách sản phẩm trong giỏ hàng
 function getCart() {
-  return JSON.parse(localStorage.getItem("tmc_cart")) || [];
+  return JSON.parse(localStorage.getItem("tmc_cart")) || []; //chuyển từ chuỗi JSON về mảng
 }
 
-// Save cart items
+//lưu giỏ hàng và gọi hàm cập nhật icon hiển thị
 function saveCart(cart) {
   localStorage.setItem("tmc_cart", JSON.stringify(cart));
   updateCartUI();
 }
 
-// Add item to cart
+//thêm sản phẩm vào giỏ hàng
 function addToCart(product) {
   const cart = getCart();
   const existing = cart.find(item => item.id === product.id);
-  
+
   if (existing) {
     existing.quantity += 1;
   } else {
@@ -103,32 +106,33 @@ function addToCart(product) {
       desc: product.desc
     });
   }
-  
+
   saveCart(cart);
-  
-  // Visual micro-feedback notification
+
+  //hiển thị thông báo đã thêm sản phẩm vào giỏ hàng
   showNotification(`Đã thêm "${product.name}" vào giỏ hàng!`);
 }
 
-// Helper to show modal/alert toast notification
+//hiển thị thông báo trên màn hình
 function showNotification(message) {
   const container = document.getElementById("toast-container") || createToastContainer();
   const toast = document.createElement("div");
   toast.className = "toast-message";
   toast.innerText = message;
-  
+
   container.appendChild(toast);
-  
-  // Trigger slide-in animation
+
+  //hiệu ứng trượt vào của thông báo
   setTimeout(() => toast.classList.add("show"), 10);
-  
-  // Fade out and remove
+
+  //tự động xóa hiệu ứng sau 3s
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.remove(), 300);
   }, 3000);
 }
 
+//tạo khung chứa các thông báo nếu chưa có trên DOM
 function createToastContainer() {
   const container = document.createElement("div");
   container.id = "toast-container";
@@ -143,21 +147,21 @@ function createToastContainer() {
   return container;
 }
 
-// Update Cart Badge and Header Texts dynamically
+//cập nhật số lượng hiển thị trên icon giỏ hàng
 function updateCartUI() {
   const cart = getCart();
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  
+
   const cartLink = document.getElementById("cart-link");
   if (cartLink) {
     let badge = cartLink.querySelector(".cart-badge");
-    if (!badge && totalItems > 0) {
+    if (!badge && totalItems > 0) { //tạo badge nếu chưa có và giỏ hàng có sản phẩm
       const iconWrap = cartLink.querySelector(".cart-icon-wrap");
       badge = document.createElement("span");
       badge.className = "cart-badge";
       iconWrap.appendChild(badge);
     }
-    
+
     if (badge) {
       if (totalItems > 0) {
         badge.innerText = totalItems;
@@ -169,11 +173,11 @@ function updateCartUI() {
   }
 }
 
-// Update Header User Profile state
+//thay đổi thông tin hiển thị trên header -> người dùng đăng nhập
 function updateHeaderProfile() {
   const user = getSessionUser();
   const accountLink = document.getElementById("account-link");
-  
+
   if (accountLink && user) {
     const actionText = accountLink.querySelector(".action-text");
     if (actionText) {
@@ -182,25 +186,25 @@ function updateHeaderProfile() {
         <span class="main-text">Tài khoản của tôi</span>
       `;
     }
-    // Also point the href directly to account dashboard
+    //trỏ đến trang tài khoản
     accountLink.href = "account.html";
   }
 }
 
-// Format currency
+//định dạng tiền
 function formatCurrency(number) {
   return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' })
     .format(number)
     .replace('₫', 'đ');
 }
 
-// Bind load event
+//khởi chạy hệ thống
 document.addEventListener("DOMContentLoaded", () => {
   initDatabase();
   updateHeaderProfile();
   updateCartUI();
 
-  // Add notification container styles dynamically to page
+  //tự động chèn css cho thông báo và badge 
   const style = document.createElement("style");
   style.textContent = `
     .toast-message {

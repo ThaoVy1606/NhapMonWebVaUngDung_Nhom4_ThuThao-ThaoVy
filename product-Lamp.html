@@ -90,8 +90,8 @@
             <a href="#">Danh mục phòng <img src="images/polygon-2-158.svg" alt="arrow" class="arrow-icon"></a>
             <ul class="dropdown-menu">
               <li><a href="livingroom.html">Phòng khách</a></li>
-              <li><a href="bedroom.html">Phòng ngủ</a></li>
-              <li><a href="kitchen.html">Phòng bếp</a></li>
+              <li><a href="livingroom.html">Phòng ngủ</a></li>
+              <li><a href="livingroom.html">Phòng bếp</a></li>
             </ul>
           </li>
           <li><a href="contactUs.html">Liên hệ</a></li>
@@ -100,7 +100,7 @@
     </div>
   </nav>
 
- <!-- Main Content -->
+  <!-- Main Content -->
   <main class="container">
     <!-- Category Hero Banner -->
     <section class="category-banner" id="category-banner">
@@ -108,7 +108,7 @@
       <div class="category-banner-overlay">
         <h1>THE MOON CAT FURNITURE</h1>
         <p>Hóa Mèo Lười Trong Căn Phòng Mơ Ước</p>
-        <H1 class="TAG" style="font-size: 25px;" >ĐÈN TRANG TRÍ</H1>
+        <H1 class="TAG" style="font-size: 25px;">ĐÈN TRANG TRÍ</H1>
       </div>
     </section>
 
@@ -123,7 +123,8 @@
           <div class="prod-info-wrap">
             <div>
               <h3>Đèn bàn Luna</h3>
-              <p class="desc">Thiết kế nghệ thuật với ánh sáng dịu nhẹ, tạo cảm giác ấm áp và tinh tế cho không gian sống.</p>
+              <p class="desc">Thiết kế nghệ thuật với ánh sáng dịu nhẹ, tạo cảm giác ấm áp và tinh tế cho không gian
+                sống.</p>
             </div>
             <div class="prod-footer-row">
               <span class="price">Giá: 1.850.000đ</span>
@@ -255,31 +256,10 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".product-card-horizontal").forEach((card, index) => {
-        const btn = card.querySelector(".add-to-cart-circle");
-        if (btn) {
-          btn.addEventListener("click", () => {
-            const id = "lamp-" + (index + 1);
-            const name = card.querySelector("h3").innerText;
-            const desc = card.querySelector("p.desc").innerText;
-            const img = card.querySelector(".prod-img-wrap img").getAttribute("src");
-            const priceText = card.querySelector(".price").innerText;
-            const price = parseInt(priceText.replace(/[^0-9]/g, ""), 10);
-            
-            addToCart({ id, name, price, image: img, desc });
-          });
-        }
-      });
-    });
-  </script>
-
-
-
   <!-- Liên kết javascript -->
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/product-Lamp.js"></script>
 </body>
 
 </html>

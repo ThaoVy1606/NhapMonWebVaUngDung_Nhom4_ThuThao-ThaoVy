@@ -15,7 +15,7 @@
 
 <body>
 
-    <!-- Auth Wrapper with Bedroom Background -->
+    <!-- Nền -->
     <div class="auth-page" style="background-image: url('images/image-122.png');">
         <div class="auth-container">
 
@@ -78,48 +78,10 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const loginForm = document.getElementById("login-form");
-            const errorDiv = document.getElementById("login-error");
-
-            loginForm.addEventListener("submit", (e) => {
-                e.preventDefault();
-                errorDiv.style.display = "none";
-
-                const userInput = document.getElementById("login-user").value.trim();
-                const passInput = document.getElementById("login-pass").value;
-
-                // Lấy dữ liệu cơ sở người dùng
-                const users = JSON.parse(localStorage.getItem("tmc_users")) || DEFAULT_USERS;
-
-                // Xác thực người dùng
-                const user = users.find(u =>
-                    (u.username === userInput || u.email === userInput) &&
-                    u.password === passInput
-                );
-
-                if (user) {
-                    // Set active session
-                    setSessionUser(user);
-
-                    // Display visual feedback and redirect
-                    showNotification(`Đăng nhập thành công! Chào mừng ${user.username}.`);
-                    setTimeout(() => {
-                        window.location.href = "index.html";
-                    }, 800);
-                } else {
-                    // Display error
-                    errorDiv.innerText = "Sai tài khoản hoặc mật khẩu!";
-                    errorDiv.style.display = "block";
-                }
-            });
-        });
-    </script>
-
 <!-- Liên kết javascript -->
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/sign-in.js"></script>
 </body>
 
 </html>
