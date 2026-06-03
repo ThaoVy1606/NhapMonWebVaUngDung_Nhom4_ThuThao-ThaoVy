@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Actor&family=Alexandria&family=Baloo+2:wght@400;700&family=Baloo+Bhai+2&family=Barlow&family=Bitter:wght@400;700&family=Inder&family=Inria+Serif:wght@400;700&family=Inter:wght@300;400;600;700&family=Itim&family=Lexend+Deca&family=Playball&family=Poltawski+Nowy:wght@400;500;700&family=Roboto:wght@300;400;700&family=Dancing+Script:wght@400;700&display=swap');
+
+/* Tạo biến toàn cục */
+:root { 
+  --font-family-baloo-2: 'Baloo 2', sans-serif;
+  --font-family-inter: 'Inter', sans-serif;
+  --font-family-itim: 'Itim', sans-serif;
+  --font-family-lexend-deca: 'Lexend Deca', sans-serif;
+  --font-family-cherry-bomb: 'Cherry Bomb', 'Itim', cursive;
+  --font-family-bitter: 'Bitter', sans-serif;
+  --font-family-abeezee: 'ABeeZee', sans-serif;
+  --font-family-alexandria: 'Alexandria', sans-serif;
+  --font-family-baloo-bhai-2: 'Baloo Bhai 2', sans-serif;
+  --font-family-barlow: 'Barlow', sans-serif;
+  --font-family-actor: 'Actor', sans-serif;
+  --font-family-roboto: 'Roboto', sans-serif;
+  --font-family-inria-serif: 'Inria Serif', sans-serif;
+  --font-family-playball: 'Playball', 'Dancing Script', 'Itim', cursive;
+  --font-family-poltawski-nowy: 'Poltawski Nowy', 'Inria Serif', serif;
+  --font-family-inder: 'Inder', sans-serif;
+  --font-family-mv-boli: 'MV Boli', 'Itim', cursive;
+
+    /* Bảng màu nền */
+  --bg-main: #c3c3c3;        /* Nền chính của toàn trang */
+  --bg-white: #f2f2f2;       /* Nền các khối nội dung, thẻ card */
+  --bg-header: #454444;      /* Nền thanh đầu trang */
+  --bg-nav: #a5a5a5;         /* Nền thanh menu*/
+  --bg-footer: #4b4b4b;      /* Nền chân trang */
+
+  /* Màu chữ */
+  --color-white: rgba(255, 255, 255, 1); /* Chữ màu trắng */
+  --color-black: rgba(0, 0, 0, 1);       /* Chữ màu đen */
+  --color-accent: #353f5a;   /* Màu chữ khi nhấn */
+  --color-text: #333333;     /* Màu chữ mặc định */
+
+  /* Độ bo góc */
+  --radius-lg: 30px;         /* Bo góc lớn cho các khối bọc ngoài hoặc banner */
+  --radius-md: 20px;         /* Bo góc vừa cho các mục sản phẩm */
+  --radius-sm: 10px;         /* Bo góc nhỏ cho nút bấm (Button) */
+
+  /* Hiệu ứng đổ bóng */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);    /* Đổ bóng nhẹ */
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);  /* Đổ bóng rõ hơn */
+}
+
+/* Cấu hình bố cục toàn cục */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: var(--font-family-inter);
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+
+

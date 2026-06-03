@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - The Moon Cat Furniture</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter|Roboto&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 601px)">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 600px)">
+</head>
+
+<body>
+
+    <!-- Auth Wrapper with Bedroom Background -->
+    <div class="auth-page" style="background-image: url('images/image-122.png');">
+        <div class="auth-container">
+
+            <!-- Left Box: Glassmorphism Login Form -->
+            <section class="auth-glass-box">
+                <h2>CHÀO MỪNG TRỞ LẠI!</h2>
+
+                <form class="auth-form" id="login-form">
+                    <!-- Input Username/Email -->
+                    <div class="auth-input-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#555555"
+                            stroke-width="2" class="input-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                        <input type="text" id="login-user" placeholder="Tên đăng nhập hoặc Email" required
+                            autocomplete="username">
+                    </div>
+
+                    <!-- Input Password -->
+                    <div class="auth-input-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#555555"
+                            stroke-width="2" class="input-icon">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                        <input type="password" id="login-pass" placeholder="Mật khẩu" required
+                            autocomplete="current-password">
+                    </div>
+
+                    <!-- Remember me -->
+                    <div class="auth-checkbox-wrap">
+                        <input type="checkbox" id="login-remember">
+                        <label for="login-remember">Ghi nhớ tôi</label>
+                    </div>
+
+                    <!-- Error Message Display -->
+                    <div id="login-error"
+                        style="color: #ff4d4d; font-size: 13px; font-weight: 600; display: none; text-align: center;">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="auth-btn">ĐĂNG NHẬP NGAY</button>
+                </form>
+
+                <div class="auth-footer-text">
+                    Chưa có tài khoản? <a href="sign-up.html">ĐĂNG KÝ NGAY.</a>
+                </div>
+            </section>
+
+            <!-- Right Column: Brand Section -->
+            <section class="auth-brand-section">
+                <div class="auth-logo-circle">
+                    <img src="images/logo-84.png" alt="Logo">
+                </div>
+                <h1>THE MOON CAT</h1>
+                <p>FURNITURE</p>
+            </section>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginForm = document.getElementById("login-form");
+            const errorDiv = document.getElementById("login-error");
+
+            loginForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                errorDiv.style.display = "none";
+
+                const userInput = document.getElementById("login-user").value.trim();
+                const passInput = document.getElementById("login-pass").value;
+
+                // Fetch users database
+                const users = JSON.parse(localStorage.getItem("tmc_users")) || DEFAULT_USERS;
+
+                // Authenticate
+                const user = users.find(u =>
+                    (u.username === userInput || u.email === userInput) &&
+                    u.password === passInput
+                );
+
+                if (user) {
+                    // Set active session
+                    setSessionUser(user);
+
+                    // Display visual feedback and redirect
+                    showNotification(`Đăng nhập thành công! Chào mừng ${user.username}.`);
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 800);
+                } else {
+                    // Display error
+                    errorDiv.innerText = "Sai tài khoản hoặc mật khẩu!";
+                    errorDiv.style.display = "block";
+                }
+            });
+        });
+    </script>
+
+<!-- Liên kết javascript -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

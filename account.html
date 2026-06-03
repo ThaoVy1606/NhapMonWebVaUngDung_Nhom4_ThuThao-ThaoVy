@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài Khoản Của Mèo - The Moon Cat Furniture</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter|Roboto&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 601px)">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 600px)">
+</head>
+<body>
+    <!-- Thanh địa chỉ trên cùng -->
+  <div class="top-bar" id="top-bar">
+    <div class="container">
+      <img src="images/place-marker-81.png" alt="location">
+      <span>180 Cao Lỗ, Phường Chánh Hưng, Thành Phố Hồ Chí Minh</span>
+    </div>
+  </div>
+
+      <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-wrap">
+            <a href="index.html" class="logo" id="logo-link">
+                <img src="images/logo-84.png" alt="The Moon Cat Furniture Logo">
+                <div class="logo-text">
+                    <span class="brand-name">THE MOON CAT</span>
+                    <span class="brand-sub">FURNITURE</span>
+                </div>
+            </a>
+            <!-- Thanh tìm kiếm -->
+            <div class="search-bar" id="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button type="submit" aria-label="Search">
+                    <img src="images/icon-94.svg" alt="search">
+                </button>
+            </div>
+            <!-- Khối chức năng (Tài khoản & Giỏ hàng) -->
+            <div class="header-actions">
+                <!-- Tài khoản -->
+                <a href="account.html" class="action-item user-btn" id="account-link">
+                    <img src="images/user-99.png" alt="user">
+                    <div class="action-text">
+                        <span class="sub-text">Đăng nhập / Đăng ký</span>
+                        <span class="main-text">Tài khoản của tôi</span>
+                    </div>
+                </a>
+                <!-- Giỏ hàng -->
+                <a href="shoppingCart.html" class="action-item cart-btn" id="cart-link">
+                    <div class="cart-icon-wrap">
+                        <img src="images/icon-105.svg" alt="cart">
+                    </div>
+                    <div class="action-text">
+                        <span class="main-text">Giỏ hàng</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <nav class="nav-bar" id="nav-bar">
+        <div class="container nav-wrap">
+            <button class="menu-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Trang chủ</a></li>
+                    <li><a href="aboutUs.html">Giới thiệu</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="#">Danh mục nội thất <img src="images/polygon-1-156.svg" alt="arrow"
+                                class="arrow-icon"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="product-Lamp.html">Đèn trang trí</a></li>
+                            <li><a href="product-Lamp.html">Bàn ghế & Sofa</a></li>
+                            <li><a href="product-Lamp.html">Giường ngủ</a></li>
+                            <li><a href="product-Lamp.html">Tủ quần áo</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="#">Danh mục phòng <img src="images/polygon-2-158.svg" alt="arrow"
+                                class="arrow-icon"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="livingroom.html">Phòng khách</a></li>
+                            <li><a href="bedroom.html">Phòng ngủ</a></li>
+                            <li><a href="kitchen.html">Phòng bếp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contactUs.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+      <!-- Main Content -->
+  <main class="container">
+    <!-- User Profile Header -->
+    <section class="account-header" id="account-header">
+      <div class="avatar-circle">
+        <img src="images/imgusername-323.svg" alt="User Avatar">
+      </div>
+      <h1 class="account-username">TÊN TÀI KHOẢN</h1>
+    </section>
+
+    <!-- Dashboard Layout Grid -->
+    <div class="dashboard-layout">
+      <!-- Left Column: Profile Info & Membership -->
+      <div class="left-column">
+        <!-- Hồ sơ của mèo -->
+        <section class="dashboard-card" id="profile-card">
+          <h2 class="dashboard-card-title">HỒ SƠ CỦA MÈO</h2>
+          <div class="underline-bar" style="height: 3px; width: 60px; margin-bottom: 20px;"></div>
+          
+          <div class="account-form-group">
+            <div class="account-field">
+              <label for="profile-phone">Số điện thoại:</label>
+              <div class="input-with-icon">
+                <img src="images/phone-246.png" alt="Phone" class="field-icon">
+                <input type="text" id="profile-phone" value="0988 789 999" readonly>
+                <img src="images/edit-property-247.png" alt="Edit" class="edit-icon">
+              </div>
+            </div>
+
+            <div class="account-field">
+              <label for="profile-email">Email:</label>
+              <div class="input-with-icon">
+                <img src="images/email-241.png" alt="Email" class="field-icon">
+                <input type="email" id="profile-email" value="themooncatfurniture@gmail.com" readonly>
+                <img src="images/edit-property-242.png" alt="Edit" class="edit-icon">
+              </div>
+            </div>
+
+            <div class="account-field">
+              <label for="profile-address">Địa chỉ giao hàng:</label>
+              <div class="input-with-icon">
+                <img src="images/map-251.png" alt="Address" class="field-icon">
+                <input type="text" id="profile-address" value="180 Cao Lỗ, Phường Chánh Hưng, TP.HCM" readonly>
+                <img src="images/edit-property-252.png" alt="Edit" class="edit-icon">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hạng thành viên -->
+        <section class="dashboard-card" id="membership-card">
+          <h2 class="dashboard-card-title">HẠNG THÀNH VIÊN</h2>
+          <div class="underline-bar" style="height: 3px; width: 60px; margin-bottom: 20px;"></div>
+          
+          <div class="rank-widget">
+            <div class="rank-box">
+              <img src="images/imgrank-287.png" alt="Rank Badge">
+              <span class="title">Hạng hiện tại</span>
+              <span class="value">ĐỒNG</span>
+            </div>
+            <div class="spend-box">
+              <span class="title">Tổng chi tiêu</span>
+              <span class="value">000.000.000 VND</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Recent Orders & Settings -->
+      <div class="right-column">
+        <!-- Đơn hàng gần đây -->
+        <section class="dashboard-card" id="orders-card">
+          <h2 class="dashboard-card-title" style="display: inline-block;">ĐƠN HÀNG GẦN ĐÂY</h2>
+          <a href="#" class="view-all-orders">Xem tất cả đơn hàng</a>
+          <div class="underline-bar" style="height: 3px; width: 60px; margin-bottom: 20px; clear: both;"></div>
+
+           <table class="orders-table">
+             <thead>
+               <tr>
+                 <th>Mã đơn</th>
+                 <th>Ngày đặt</th>
+                 <th>Tổng tiền</th>
+                 <th>Trạng thái</th>
+                 <th>Xem chi tiết</th>
+               </tr>
+             </thead>
+             <tbody id="orders-tbody">
+               <!-- Dynamically populated -->
+             </tbody>
+           </table>
+        </section>
+
+        <!-- Cài đặt tài khoản -->
+        <section class="dashboard-card" id="settings-card">
+          <h2 class="dashboard-card-title">CÀI ĐẶT TÀI KHOẢN</h2>
+          <div class="underline-bar" style="height: 3px; width: 60px; margin-bottom: 20px;"></div>
+
+          <ul class="settings-menu">
+            <li>
+              <a href="#" class="settings-link">
+                <div class="settings-link-left">
+                  <img src="images/registration-304.png" alt="Profile Settings">
+                  <span>Thông tin tài khoản và bảo mật</span>
+                </div>
+                <img src="images/forward-305.png" alt="Forward" class="arrow">
+              </a>
+            </li>
+            <li>
+              <a href="#" class="settings-link">
+                <div class="settings-link-left">
+                  <img src="images/alarm-302.png" alt="Notification Settings">
+                  <span>Thông báo</span>
+                </div>
+                <img src="images/forward-306.png" alt="Forward" class="arrow">
+              </a>
+            </li>
+             <li>
+               <a href="#" class="settings-link" id="logout-link">
+                 <div class="settings-link-left">
+                   <img src="images/logout-303.png" alt="Logout">
+                   <span>Đăng xuất</span>
+                 </div>
+                 <img src="images/forward-307.png" alt="Forward" class="arrow">
+               </a>
+             </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="newsletter-info">
+          <img src="images/paper-plane-310.png" alt="Newsletter">
+          <div class="newsletter-text">
+            <h3>Đăng ký nhận bản tin</h3>
+            <p>Để nhận các thông tin mới từ The Moon Cat cũng như các chương trình khuyến mãi</p>
+          </div>
+        </div>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Vui lòng nhập email của bạn...">
+          <button type="submit">ĐĂNG KÝ</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright © 2026 THE MOON CAT FURNITURE.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = getSessionUser();
+      if (!user) {
+        window.location.href = "sign-in.html";
+        return;
+      }
+
+      // Set Profile info
+      document.getElementById("profile-phone").value = user.phone;
+      document.getElementById("profile-email").value = user.email;
+      document.getElementById("profile-address").value = user.address;
+
+      // Set Username
+      const usernameHeader = document.querySelector(".account-username");
+      if (usernameHeader) {
+        usernameHeader.innerText = user.username;
+      }
+
+      // Set Rank & Spending
+      const rankVal = document.querySelector(".rank-box .value");
+      const spendVal = document.querySelector(".spend-box .value");
+      if (rankVal) rankVal.innerText = user.rank;
+      if (spendVal) spendVal.innerText = formatCurrency(user.spending);
+
+      // Edit profile actions
+      document.querySelectorAll(".account-field").forEach(field => {
+        const editIcon = field.querySelector(".edit-icon");
+        const input = field.querySelector("input");
+        
+        if (editIcon && input) {
+          editIcon.addEventListener("click", () => {
+            if (input.hasAttribute("readonly")) {
+              // Make editable
+              input.removeAttribute("readonly");
+              input.focus();
+              editIcon.style.filter = "invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%)";
+            } else {
+              // Save details
+              input.setAttribute("readonly", true);
+              editIcon.style.filter = "none";
+              
+              // Update in user object
+              const fieldType = input.getAttribute("id");
+              if (fieldType === "profile-phone") user.phone = input.value;
+              if (fieldType === "profile-email") user.email = input.value;
+              if (fieldType === "profile-address") user.address = input.value;
+              
+              // Save back to db
+              setSessionUser(user);
+              const users = JSON.parse(localStorage.getItem("tmc_users")) || [];
+              const userIdx = users.findIndex(u => u.username === user.username);
+              if (userIdx > -1) {
+                users[userIdx] = user;
+                localStorage.setItem("tmc_users", JSON.stringify(users));
+              }
+              
+              showNotification("Cập nhật hồ sơ thành công!");
+            }
+          });
+
+          // Also save on enter keypress
+          input.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+              editIcon.click();
+            }
+          });
+        }
+      });
+
+      // Render dynamic orders
+      const ordersTbody = document.getElementById("orders-tbody");
+      if (ordersTbody) {
+        const orders = JSON.parse(localStorage.getItem("tmc_orders")) || [];
+        const userOrders = orders.filter(o => o.username === user.username);
+        
+        if (userOrders.length === 0) {
+          ordersTbody.innerHTML = `
+            <tr>
+              <td colspan="5" class="center" style="padding: 20px; color: #666; font-family: var(--font-family-poltawski-nowy);">
+                Chưa có đơn hàng nào được đặt.
+              </td>
+            </tr>
+          `;
+        } else {
+          ordersTbody.innerHTML = "";
+          // show newest first
+          userOrders.reverse().forEach(o => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>#${o.orderId}</td>
+              <td>${o.date}</td>
+              <td>${o.total}</td>
+              <td style="color: ${o.status === 'Đã hoàn thành' ? 'green' : 'orange'}; font-weight: bold;">
+                ${o.status}
+              </td>
+              <td><a href="#" class="details-link" onclick="event.preventDefault(); showNotification('Chi tiết đơn hàng đang được cập nhật...');">Xem</a></td>
+            `;
+            ordersTbody.appendChild(tr);
+          });
+        }
+      }
+
+      // Logout trigger
+      const logoutLink = document.getElementById("logout-link");
+      if (logoutLink) {
+        logoutLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          logoutUser();
+        });
+      }
+    });
+  </script>
+
+    <!-- Liên kết javascript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

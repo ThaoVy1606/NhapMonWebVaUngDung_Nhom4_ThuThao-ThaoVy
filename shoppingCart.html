@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giỏ Hàng - The Moon Cat Furniture</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter|Roboto&display=swap" rel="stylesheet">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 601px)">
+  <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 600px)">
+</head>
+
+<body>
+  <!-- Thanh địa chỉ trên cùng -->
+  <div class="top-bar" id="top-bar">
+    <div class="container">
+      <img src="images/place-marker-81.png" alt="location">
+      <span>180 Cao Lỗ, Phường Chánh Hưng, Thành Phố Hồ Chí Minh</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-wrap">
+      <a href="index.html" class="logo" id="logo-link">
+        <img src="images/logo-84.png" alt="The Moon Cat Furniture Logo">
+        <div class="logo-text">
+          <span class="brand-name">THE MOON CAT</span>
+          <span class="brand-sub">FURNITURE</span>
+        </div>
+      </a>
+      <!-- Thanh tìm kiếm -->
+      <div class="search-bar" id="search-bar">
+        <input type="text" placeholder="Tìm kiếm...">
+        <button type="submit" aria-label="Search">
+          <img src="images/icon-94.svg" alt="search">
+        </button>
+      </div>
+      <!-- Khối chức năng (Tài khoản & Giỏ hàng) -->
+      <div class="header-actions">
+        <!-- Tài khoản -->
+        <a href="account.html" class="action-item user-btn" id="account-link">
+          <img src="images/user-99.png" alt="user">
+          <div class="action-text">
+            <span class="sub-text">Đăng nhập / Đăng ký</span>
+            <span class="main-text">Tài khoản của tôi</span>
+          </div>
+        </a>
+        <!-- Giỏ hàng -->
+        <a href="shoppingCart.html" class="action-item cart-btn" id="cart-link">
+          <div class="cart-icon-wrap">
+            <img src="images/icon-105.svg" alt="cart">
+          </div>
+          <div class="action-text">
+            <span class="main-text">Giỏ hàng</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <nav class="nav-bar" id="nav-bar">
+    <div class="container nav-wrap">
+      <button class="menu-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavMenu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavMenu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Trang chủ</a></li>
+          <li><a href="aboutUs.html">Giới thiệu</a></li>
+
+          <li class="has-dropdown">
+            <a href="#">Danh mục nội thất <img src="images/polygon-1-156.svg" alt="arrow" class="arrow-icon"></a>
+            <ul class="dropdown-menu">
+              <li><a href="product-Lamp.html">Đèn trang trí</a></li>
+              <li><a href="product-Lamp.html">Bàn ghế & Sofa</a></li>
+              <li><a href="product-Lamp.html">Giường ngủ</a></li>
+              <li><a href="product-Lamp.html">Tủ quần áo</a></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <a href="#">Danh mục phòng <img src="images/polygon-2-158.svg" alt="arrow" class="arrow-icon"></a>
+            <ul class="dropdown-menu">
+              <li><a href="livingroom.html">Phòng khách</a></li>
+              <li><a href="bedroom.html">Phòng ngủ</a></li>
+              <li><a href="kitchen.html">Phòng bếp</a></li>
+            </ul>
+          </li>
+          <li><a href="contactUs.html">Liên hệ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container" style="margin-top: 30px;">
+    <!-- Title Banner -->
+    <section class="cart-title-banner" style="border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm);">
+      <div class="cart-title-left">
+        <h1>THE MOON CAT FURNITURE</h1>
+        <p>Giỏ Hàng Của Mèo</p>
+      </div>
+      <div class="cart-title-right">
+        <img src="images/imgusername-323.svg" alt="User" style="width: 32px; height: 32px; background-color: #fff; border-radius: 50%;">
+        <span>Tài khoản</span>
+      </div>
+    </section>
+
+    <!-- Cart Table Area -->
+    <section class="cart-content-wrapper" id="cart-content-wrapper">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th class="center" style="width: 15%;">Đơn giá</th>
+            <th class="center" style="width: 20%;">Số lượng</th>
+            <th class="center" style="width: 15%;">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody id="cart-tbody">
+          <!-- Dynamically populated -->
+        </tbody>
+      </table>
+
+      <!-- Checkout & Coupon Panel -->
+      <div class="checkout-panel">
+        <div class="coupon-box">
+          <input type="text" id="coupon-code" placeholder="Mã giảm giá (MOONCAT20)...">
+          <button type="button" id="apply-coupon-btn">SỬ DỤNG</button>
+        </div>
+        <div class="checkout-right">
+          <div class="cart-total-box">
+            <span id="cart-total-sum">Tổng: 0đ</span>
+          </div>
+          <button type="button" class="checkout-btn" id="place-order-btn">ĐẶT HÀNG</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="newsletter-info">
+          <img src="images/paper-plane-513.png" alt="Newsletter">
+          <div class="newsletter-text">
+            <h3>Đăng ký nhận bản tin</h3>
+            <p>Để nhận các thông tin mới từ The Moon Cat cũng như các chương trình khuyến mãi</p>
+          </div>
+        </div>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Vui lòng nhập email của bạn...">
+          <button type="submit">ĐĂNG KÝ</button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright © 2026 THE MOON CAT FURNITURE.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tbody = document.getElementById("cart-tbody");
+      const totalSpan = document.getElementById("cart-total-sum");
+      const checkoutBtn = document.getElementById("place-order-btn");
+      const couponInput = document.getElementById("coupon-code");
+      const applyCouponBtn = document.getElementById("apply-coupon-btn");
+      
+      let discountPercentage = 0;
+
+      function renderCart() {
+        const cart = getCart();
+        tbody.innerHTML = "";
+        
+        if (cart.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="4" class="center" style="padding: 40px; font-size: 16px; color: #666; font-family: var(--font-family-poltawski-nowy);">
+                Giỏ hàng của mèo đang trống! Hãy quay lại chọn sản phẩm nhé.
+              </td>
+            </tr>
+          `;
+          totalSpan.innerText = "Tổng: 0đ";
+          checkoutBtn.disabled = true;
+          checkoutBtn.style.opacity = "0.5";
+          checkoutBtn.style.cursor = "not-allowed";
+          return;
+        }
+
+        checkoutBtn.disabled = false;
+        checkoutBtn.style.opacity = "1";
+        checkoutBtn.style.cursor = "pointer";
+
+        let subtotal = 0;
+
+        cart.forEach((item, index) => {
+          subtotal += item.price * item.quantity;
+          
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>
+              <div class="cart-product-item">
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-product-info">
+                  <h4>${item.name}</h4>
+                  <p>${item.desc}</p>
+                </div>
+              </div>
+            </td>
+            <td class="center">
+              <span class="cart-price">${formatCurrency(item.price)}</span>
+            </td>
+            <td class="center">
+              <div class="quantity-selector">
+                <button type="button" class="qty-btn minus" data-id="${item.id}">-</button>
+                <input type="text" value="${item.quantity}" readonly>
+                <button type="button" class="qty-btn plus" data-id="${item.id}">+</button>
+              </div>
+            </td>
+            <td class="center">
+              <div class="cart-actions">
+                <img src="images/edit-property-466.png" alt="Edit" title="Sửa">
+                <img src="images/delete-trash-465.png" alt="Delete" class="delete-btn" data-id="${item.id}" title="Xóa">
+              </div>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        // Apply discount if any
+        const discountAmount = subtotal * (discountPercentage / 100);
+        const finalTotal = subtotal - discountAmount;
+
+        totalSpan.innerText = `Tổng: ${formatCurrency(finalTotal)}` + (discountPercentage > 0 ? ` (Đã giảm ${discountPercentage}%)` : '');
+
+        // Re-bind listeners
+        bindCartEvents();
+      }
+
+      function bindCartEvents() {
+        // Quantity Plus
+        document.querySelectorAll(".qty-btn.plus").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-id");
+            const cart = getCart();
+            const item = cart.find(i => i.id === id);
+            if (item) {
+              item.quantity += 1;
+              saveCart(cart);
+              renderCart();
+            }
+          });
+        });
+
+        // Quantity Minus
+        document.querySelectorAll(".qty-btn.minus").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-id");
+            const cart = getCart();
+            const itemIndex = cart.findIndex(i => i.id === id);
+            if (itemIndex > -1) {
+              cart[itemIndex].quantity -= 1;
+              if (cart[itemIndex].quantity <= 0) {
+                cart.splice(itemIndex, 1);
+              }
+              saveCart(cart);
+              renderCart();
+            }
+          });
+        });
+
+        // Delete Button
+        document.querySelectorAll(".delete-btn").forEach(btn => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-id");
+            let cart = getCart();
+            cart = cart.filter(i => i.id !== id);
+            saveCart(cart);
+            renderCart();
+            showNotification("Đã xóa sản phẩm khỏi giỏ hàng.");
+          });
+        });
+      }
+
+      // Apply coupon
+      applyCouponBtn.addEventListener("click", () => {
+        const code = couponInput.value.trim().toUpperCase();
+        if (code === "MOONCAT20") {
+          discountPercentage = 20;
+          showNotification("Áp dụng mã MOONCAT20 thành công! Giảm 20% tổng đơn hàng.");
+          renderCart();
+        } else if (code === "FREESHIP") {
+          showNotification("Áp dụng mã FREESHIP thành công! Miễn phí vận chuyển.");
+        } else {
+          showNotification("Mã giảm giá không hợp lệ!");
+        }
+      });
+
+      // Checkout submit
+      checkoutBtn.addEventListener("click", () => {
+        const user = getSessionUser();
+        if (!user) {
+          showNotification("Vui lòng đăng nhập để tiến hành đặt hàng!");
+          setTimeout(() => {
+            window.location.href = "sign-in.html";
+          }, 1000);
+          return;
+        }
+
+        const cart = getCart();
+        if (cart.length === 0) return;
+
+        // Calculate total
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const finalTotal = subtotal * (1 - discountPercentage / 100);
+
+        // Create mock order
+        const orders = JSON.parse(localStorage.getItem("tmc_orders")) || [];
+        const nextId = "MC" + Math.floor(1000 + Math.random() * 9000);
+        const today = new Date();
+        const formattedDate = `${today.getDate().toString().padStart(2, '0')}/${(today.getMonth() + 1).toString().padStart(2, '0')}/${today.getFullYear()}`;
+        
+        const newOrder = {
+          orderId: nextId,
+          username: user.username,
+          date: formattedDate,
+          total: formatCurrency(finalTotal),
+          status: "Đang xử lý"
+        };
+
+        orders.push(newOrder);
+        localStorage.setItem("tmc_orders", JSON.stringify(orders));
+
+        // Clear cart
+        localStorage.setItem("tmc_cart", JSON.stringify([]));
+        updateCartUI();
+
+        showNotification("Đặt hàng thành công! Đang chuyển hướng đến trang tài khoản...");
+        setTimeout(() => {
+          window.location.href = "account.html";
+        }, 1200);
+      });
+
+      // Initial render
+      renderCart();
+    });
+  </script>
+
+
+  <!-- Liên kết javascript -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

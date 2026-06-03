@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Moon Cat Furniture</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter|Roboto&display=swap" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/desktop.css" media="screen and (min-width: 601px)">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 600px)">
+</head>
+
+<body>
+    <!-- Thanh địa chỉ trên cùng -->
+    <div class="top-bar" id="top-bar">
+        <div class="container">
+            <img src="images/place-marker-81.png" alt="location">
+            <span>180 Cao Lỗ, Phường Chánh Hưng, Thành Phố Hồ Chí Minh</span>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-wrap">
+            <a href="index.html" class="logo" id="logo-link">
+                <img src="images/logo-84.png" alt="The Moon Cat Furniture Logo">
+                <div class="logo-text">
+                    <span class="brand-name">THE MOON CAT</span>
+                    <span class="brand-sub">FURNITURE</span>
+                </div>
+            </a>
+            <!-- Thanh tìm kiếm -->
+            <div class="search-bar" id="search-bar">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button type="submit" aria-label="Search">
+                    <img src="images/icon-94.svg" alt="search">
+                </button>
+            </div>
+            <!-- Khối chức năng (Tài khoản & Giỏ hàng) -->
+            <div class="header-actions">
+                <!-- Tài khoản -->
+                <a href="account.html" class="action-item user-btn" id="account-link">
+                    <img src="images/user-99.png" alt="user">
+                    <div class="action-text">
+                        <span class="sub-text">Đăng nhập / Đăng ký</span>
+                        <span class="main-text">Tài khoản của tôi</span>
+                    </div>
+                </a>
+                <!-- Giỏ hàng -->
+                <a href="shoppingCart.html" class="action-item cart-btn" id="cart-link">
+                    <div class="cart-icon-wrap">
+                        <img src="images/icon-105.svg" alt="cart">
+                    </div>
+                    <div class="action-text">
+                        <span class="main-text">Giỏ hàng</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu -->
+    <nav class="nav-bar" id="nav-bar">
+        <div class="container nav-wrap">
+            <button class="menu-toggle d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavMenu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Trang chủ</a></li>
+                    <li><a href="aboutUs.html">Giới thiệu</a></li>
+
+                    <li class="has-dropdown">
+                        <a href="#">Danh mục nội thất <img src="images/polygon-1-156.svg" alt="arrow"
+                                class="arrow-icon"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="product-Lamp.html">Đèn trang trí</a></li>
+                            <li><a href="product-Lamp.html">Bàn ghế & Sofa</a></li>
+                            <li><a href="product-Lamp.html">Giường ngủ</a></li>
+                            <li><a href="product-Lamp.html">Tủ quần áo</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-dropdown">
+                        <a href="#">Danh mục phòng <img src="images/polygon-2-158.svg" alt="arrow"
+                                class="arrow-icon"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="livingroom.html">Phòng khách</a></li>
+                            <li><a href="bedroom.html">Phòng ngủ</a></li>
+                            <li><a href="kitchen.html">Phòng bếp</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contactUs.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero-banner" id="hero-banner">
+            <img src="images/image-34.png" alt="Cozy Living Room Banner" class="hero-img">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>CÙNG THE MOON CAT</h1>
+                    <p>HÓA MÈO LƯỜI TRONG CĂN PHÒNG MƠ ƯỚC</p>
+                    <a href="livingroom.html" class="buy-btn">BUY NOW</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Danh sách vourcher -->
+            <section class="vouchers-section" id="vouchers-section">
+                <h2 class="section-title">KHUYẾN MÃI DÀNH CHO BẠN</h2>
+                <div class="vouchers-grid">
+                    <!-- Voucher 1 -->
+                    <div class="voucher-card">
+                        <img src="images/info-popup-50.png" alt="info" class="voucher-info-icon">
+                        <div class="voucher-icon-wrap">
+                            <img src="images/free-shipping-53.png" alt="Free Shipping">
+                        </div>
+                        <span class="voucher-title">Miễn phí vận chuyển</span>
+                        <span class="voucher-desc">Đơn hàng từ 300k</span>
+                        <button class="voucher-btn">Lấy mã ngay</button>
+                    </div>
+                    <!-- Voucher 2 -->
+                    <div class="voucher-card">
+                        <img src="images/info-popup-66.png" alt="info" class="voucher-info-icon">
+                        <div class="voucher-icon-wrap">
+                            <img src="images/voucher-69.png" alt="Voucher 20%">
+                        </div>
+                        <span class="voucher-title">Giảm 20%</span>
+                        <span class="voucher-desc">Đơn hàng từ 200k</span>
+                        <button class="voucher-btn">Lấy mã ngay</button>
+                    </div>
+                    <!-- Voucher 3 -->
+                    <div class="voucher-card">
+                        <img src="images/info-popup-58.png" alt="info" class="voucher-info-icon">
+                        <div class="voucher-icon-wrap">
+                            <img src="images/money-box-61.png" alt="Voucher 50k">
+                        </div>
+                        <span class="voucher-title">Giảm 50k</span>
+                        <span class="voucher-desc">Đơn hàng từ 500k</span>
+                        <button class="voucher-btn">Lấy mã ngay</button>
+                    </div>
+                    <!-- Voucher 4 -->
+                    <div class="voucher-card">
+                        <img src="images/info-popup-74.png" alt="info" class="voucher-info-icon">
+                        <div class="voucher-icon-wrap">
+                            <img src="images/price-tag-usd-77.png" alt="Voucher 10k">
+                        </div>
+                        <span class="voucher-title">Giảm 10k</span>
+                        <span class="voucher-desc">Đơn hàng từ 100k</span>
+                        <button class="voucher-btn">Lấy mã ngay</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Danh sách sản phẩm hot -->
+            <section class="hot-products-section" id="hot-products-section">
+                <div class="hot-products-header">
+                    <div class="hot-title-wrap">
+                        <h2>HOT NHẤT TẠI THE MOON CAT</h2>
+                        <div class="countdown-timer">
+                            <div class="countdown-box">
+                                <span class="num">0</span>
+                                <span class="label">Ngày</span>
+                            </div>
+                            <div class="countdown-box">
+                                <span class="num">00</span>
+                                <span class="label">Giờ</span>
+                            </div>
+                            <div class="countdown-box">
+                                <span class="num">00</span>
+                                <span class="label">Phút</span>
+                            </div>
+                            <div class="countdown-box">
+                                <span class="num">00</span>
+                                <span class="label">Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hot-nav-arrows">
+                        <img src="images/forward-button-10.png" alt="Prev" class="hot-prev">
+                        <img src="images/forward-button-11.png" alt="Next" class="hot-next">
+                    </div>
+                </div>
+
+                <div class="hot-carousel">
+                    <div class="hot-card"><img src="images/image-4.png" alt="Hot Product 1"></div>
+                    <div class="hot-card"><img src="images/image-5.png" alt="Hot Product 2"></div>
+                    <div class="hot-card"><img src="images/image-6.png" alt="Hot Product 3"></div>
+                    <div class="hot-card"><img src="images/image-7.png" alt="Hot Product 4"></div>
+                    <div class="hot-card"><img src="images/image-8.png" alt="Hot Product 5"></div>
+                </div>
+
+                <a href="livingroom.html" class="xem-tat-ca-btn">
+                    Xem tất cả HOT NHẤT <img src="images/chevron-right-31.png" alt="Arrow"
+                        style="display:inline; width:8px; vertical-align:middle; margin-left:5px;">
+                </a>
+            </section>
+
+            <!-- Danh sách ROOM -->
+            <section class="rooms-section" id="rooms-section">
+                <h2 class="section-title">CÁC MẪU PHÒNG KHÁC</h2>
+                <div class="rooms-grid">
+                    <a href="livingroom.html" class="room-card">
+                        <img src="images/image-119.png" alt="Living Room">
+                        <div class="room-overlay"><span>LIVING ROOM</span></div>
+                    </a>
+                    <a href="livingroom.html" class="room-card">
+                        <img src="images/image-122.png" alt="Bedroom">
+                        <div class="room-overlay"><span>BEDROOM</span></div>
+                    </a>
+                    <a href="livingroom.html" class="room-card">
+                        <img src="images/image-125.png" alt="Kitchen">
+                        <div class="room-overlay"><span>KITCHEN</span></div>
+                    </a>
+                    <a href="livingroom.html" class="room-card">
+                        <img src="images/image-128.png" alt="Office">
+                        <div class="room-overlay"><span>OFFICE</span></div>
+                    </a>
+                    <a href="livingroom.html" class="room-card">
+                        <img src="images/image-131.png" alt="Bathroom">
+                        <div class="room-overlay"><span>BATHROOM</span></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Services Bar -->
+            <section class="services-bar" id="services-bar">
+                <div class="services-wrap">
+                    <div class="service-item">
+                        <img src="images/guarantee-137.png" alt="Guarantee">
+                        <span>Bảo hành 5 năm</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/prize-147.png" alt="Quality">
+                        <span>Đảm bảo chất lượng</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/approval-140.png" alt="Shipping">
+                        <span>Miễn phí vận chuyển đơn trên 300k</span>
+                    </div>
+                    <div class="service-item">
+                        <img src="images/in-transit-144.png" alt="Inspection">
+                        <span>Kiểm tra trước khi nhận hàng</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="newsletter-info">
+                    <img src="images/paper-plane-109.png" alt="Newsletter">
+                    <div class="newsletter-text">
+                        <h3>Đăng ký nhận bản tin</h3>
+                        <p>Để nhận các thông tin mới từ The Moon Cat cũng như các chương trình khuyến mãi</p>
+                    </div>
+                </div>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Vui lòng nhập email của bạn...">
+                    <button type="submit">ĐĂNG KÝ</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2026 THE MOON CAT FURNITURE.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Liên kết javascript -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
