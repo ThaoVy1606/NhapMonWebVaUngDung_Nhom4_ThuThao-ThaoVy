@@ -380,6 +380,17 @@
   font-size: 12px;
   opacity: 0.7;
 }
+  /* Banner */
+.carousel-item img {
+    height: 550px !important;
+    object-fit: cover !important;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    border-radius: 10px;
+}
 
 .hero-banner {
   position: relative;
